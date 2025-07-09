@@ -24,8 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== 3. 綁定事件 =====
   window.addEventListener('scroll', handleScroll);
   burgerBtn.addEventListener('click', handleBurgerClick);
-  navLinks.forEach(link => {
-    link.addEventListener('click', handleNavLinkClick);
-  });
   
 });
