@@ -21,8 +21,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-md);
 }
+
 
 /* logo */
 .site-header .logo {
@@ -58,12 +59,10 @@
 
 /* 3. Dropdown Menu 隱藏/顯示 */
 .nav-menu .dropdown {
-  position: static;           /* 靜態流定位，才會推擠其他 li */
+  position: absolute;        
   display: none;              /* 預設隱藏 */
   margin: var(--spacing-sm) 0 0 var(--spacing-md); /* 上方留點空間、內縮顯示層級 */
   list-style: none;
-  /*top: 100%;             
-  left: 0;*/
   background: #fff;
   border: 1px solid #e2e2e2;
   border-radius: 4px;
@@ -85,7 +84,6 @@
 .nav-menu li:hover > .dropdown {
   display: block;
 }
-
 
 
 /* 4. Burger Menu 樣式 */
@@ -159,6 +157,7 @@
 
   /* 隱藏所有 dropdown，改用 display:none + max-height 動畫 */
   .nav-menu .dropdown {    
+    position: static;           /* 靜態流定位，才會推擠其他 li */
     display: block;
     max-height: 0;
     overflow: hidden;
