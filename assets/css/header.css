@@ -1,0 +1,179 @@
+/* assets/css/header.css */
+
+/* 1. Header 基本樣式 */
+.site-header {
+  position: fixed;       /* 固定在視窗頂端 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container 置中與內距 */
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* logo */
+.site-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* 2. 主選單 nav-menu */
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.nav-menu li {
+  position: relative;    /* 讓 dropdown 可以絕對定位 */
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  padding: var(--spacing-sm) var(--spacing-sm);
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-menu li:hover > a {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Dropdown Menu 隱藏/顯示 */
+.nav-menu .dropdown {
+  position: static;           /* 靜態流定位，才會推擠其他 li */
+  display: none;              /* 預設隱藏 */
+  margin: var(--spacing-sm) 0 0 var(--spacing-md); /* 上方留點空間、內縮顯示層級 */
+  list-style: none;
+  /*top: 100%;             
+  left: 0;*/
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.nav-menu .dropdown li {
+  margin: 0;
+}
+
+.nav-menu .dropdown li a {
+  padding: var(--spacing-sm) var(--spacing-md);
+  white-space: nowrap;
+}
+
+/* Hover 顯示 dropdown */
+.nav-menu li:hover > .dropdown {
+  display: block;
+}
+
+
+
+/* 4. Burger Menu 樣式 */
+.burger {
+  display: none;         /* 桌機版隱藏 */
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 漢堡轉叉動畫*/
+.burger.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* 5. RWD：窄螢幕漢堡選單行為 (手機版) */
+@media (max-width: 768px) {
+  /* 漢堡選單 */
+  .burger {
+    display: flex;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    width: 200px;
+    text-align: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+  }
+  .nav-menu.active {
+    transform: translateX(0%);
+  }
+  /* nav-menu 垂直排列 */
+  .nav-menu ul {
+    display: block;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav-menu li {
+    border-bottom: 1px solid #eee;
+  }
+  .nav-menu li a {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* 點擊後主項目標記（可自訂樣式） */
+  .nav-menu li.active > a {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  /* 隱藏所有 dropdown，改用 display:none + max-height 動畫 */
+  .nav-menu .dropdown {    
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    margin-left: var(--spacing-md);
+    transition: max-height 0.3s ease;
+  }
+
+  /* 點擊後展開 dropdown */
+  .nav-menu li:hover > .dropdown {
+    display: block;
+    max-height: 500px; /* 依內容長度調整足夠值 */
+  }
+  
+  .nav-menu li.active > .dropdown {
+    display: block;
+  }
+  
+}
