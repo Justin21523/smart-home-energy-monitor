@@ -1,17 +1,83 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="assets/css/base.css"      rel="stylesheet" />
-  <link href="assets/css/reset.css"    rel="stylesheet" />
-  <link href="assets/css/variables.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartHome Energy Monitor</title>
+
+  <!-- 全域樣式 -->
+  <link href="assets/css/reset.css"      rel="stylesheet" />
+  <link href="assets/css/variables.css"  rel="stylesheet" />
+  <link href="assets/css/base.css"       rel="stylesheet" />
+  <link href="assets/css/layout.css"     rel="stylesheet" />
+  <link href="assets/css/header.css"     rel="stylesheet" />
+  <!-- 其它需要的 CSS -->
 </head>
 
 <body>
-  Hello world
-</body>
+  <!-- Header with dropdown nav -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">SmartHome</a>
+      
+      <nav class="nav-menu">
+        <ul>
+          <!-- History -->
+          <li>
+            <a href="history.html">History</a>
+            <ul class="dropdown">
+              <li><a href="history.html#daily">Daily</a></li>
+              <li><a href="history.html#monthly">Monthly</a></li>
+              <li><a href="history.html#yearly">Yearly</a></li>
+            </ul>
+          </li>
+          <!-- Devices -->
+          <li>
+            <a href="devices.html">Devices</a>
+            <ul class="dropdown">
+              <li><a href="devices.html#all">All Devices</a></li>
+              <li><a href="devices.html#lighting">Lighting</a></li>
+              <li><a href="devices.html#hvac">HVAC</a></li>
+            </ul>
+          </li>
+          <!-- Tips -->
+          <li>
+            <a href="tips.html">Tips</a>
+            <ul class="dropdown">
+              <li><a href="tips.html#lighting">Lighting Tips</a></li>
+              <li><a href="tips.html#appliances">Appliance Tips</a></li>
+              <li><a href="tips.html#heating">Heating Tips</a></li>
+            </ul>
+          </li>
+          <!-- Settings -->
+          <li>
+            <a href="settings.html">Settings</a>
+            <ul class="dropdown">
+              <li><a href="settings.html#thresholds">Thresholds</a></li>
+              <li><a href="settings.html#alerts">Alerts</a></li>
+              <li><a href="settings.html#preferences">Preferences</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
+      <!-- 漢堡按鈕 -->
+      <button class="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main style="padding-top: calc(var(--spacing-lg) * 2);">
+    <!-- 你的 Hero、About、Features…等區塊 -->
+    <section class="hero">
+      <!-- … -->
+    </section>
+  </main>
+
+  <!-- 導入 Header JS 以處理 scroll & burger toggle -->
+  <script src="assets/js/header.js"></script>
+  <!-- 其它 Module Scripts -->
+</body>
 </html>
