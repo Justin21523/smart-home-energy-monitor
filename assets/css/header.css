@@ -4,10 +4,15 @@
 .site-header {
   position: fixed;       /* 固定在視窗頂端 */
   top: 0;
-  left: 0;
   width: 100%;
-  background: transparent;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  padding: var(--spacing-md) var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2;
+  background-color: rgba(255, 255, 255, 0.3);      /* 淡白毛玻璃底 */
+  backdrop-filter: blur(5px);                       /* 毛玻璃模糊 */
+  transition: background-color 0.3s ease;
   z-index: 1000;
 }
 
@@ -23,7 +28,6 @@
   align-items: center;
   padding: var(--spacing-md) var(--spacing-md);
 }
-
 
 /* logo */
 .site-header .logo {
@@ -46,10 +50,14 @@
 
 .nav-menu li a {
   text-decoration: none;
-  color: var(--color-secondary);
+  color: #fff; /* hero標題相同 白色文字*/
   padding: var(--spacing-sm) var(--spacing-sm);
   display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease color 0.3s ease;
+}
+
+.site-header.scrolled .nav-menu li a {
+  color: var(--color-primary-dark); /* 例如 #1E90FF 深藍 */
 }
 
 .nav-menu li:hover > a {
@@ -77,6 +85,7 @@
 
 .nav-menu .dropdown li a {
   padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-primary-dark);
   white-space: nowrap;
 }
 
@@ -121,6 +130,13 @@
   .burger {
     display: flex;
   }
+  .burger, .burger span {
+    color: var(--color-primary-dark);
+  }
+  .site-header {
+    background-color: rgba(255, 255, 255, 0.3);      /* 淡白毛玻璃底 */
+    backdrop-filter: blur(5px);                       /* 毛玻璃模糊 */
+  }
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -145,6 +161,7 @@
     border-bottom: 1px solid #eee;
   }
   .nav-menu li a {
+    color: var(--color-primary-dark);
     padding: var(--spacing-md);
     border-bottom: 1px solid #f0f0f0;
   }
