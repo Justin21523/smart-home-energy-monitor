@@ -59,11 +59,7 @@
 
 /* 3. Dropdown Menu 隱藏/顯示 */
 .nav-menu .dropdown {
-<<<<<<< HEAD
   position: absolute;        
-=======
-  position: absolute;           
->>>>>>> feature/header
   display: none;              /* 預設隱藏 */
   margin: var(--spacing-sm) 0 0 var(--spacing-md); /* 上方留點空間、內縮顯示層級 */
   list-style: none;
