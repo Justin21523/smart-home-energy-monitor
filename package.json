@@ -4,7 +4,11 @@
   "description": "Smart home energy dashboard with live reload using live-server",
   "main": "index.html",
   "scripts": {
-    "dev": "live-server --host=0.0.0.0 --port=3000 --watch=."
+    "dev": "live-server --host=0.0.0.0 --port=3000 --watch=.",
+    "demo:dev": "npm --prefix demo-app run dev",
+    "demo:build": "npm --prefix demo-app run build",
+    "demo:preview": "npm --prefix demo-app run preview",
+    "build": "npm --prefix demo-app run build"
   },
   "devDependencies": {
     "live-server": "^1.2.0",
