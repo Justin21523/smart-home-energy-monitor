@@ -5,9 +5,9 @@
   "main": "index.html",
   "scripts": {
     "dev": "live-server --host=0.0.0.0 --port=3000 --watch=.",
-    "demo:dev": "npm --prefix demo-app run dev",
-    "demo:build": "npm --prefix demo-app run build",
-    "demo:preview": "npm --prefix demo-app run preview",
+    "demo:dev": "python3 -m http.server 4173 --directory demo-app",
+    "demo:build": "node -e \"require('fs').accessSync('demo-app/index.html')\"",
+    "demo:preview": "python3 -m http.server 4173 --directory demo-app",
     "build": "npm --prefix demo-app run build"
   },
   "devDependencies": {
